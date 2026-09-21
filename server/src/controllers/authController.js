@@ -1,12 +1,11 @@
-import { PrismaClient } from '@prisma/client';
+import prisma from '../prisma.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-const prisma = new PrismaClient();
-const JWT_SECRET = process.env.JWT_SECRET || 'projecthub_secret_key_dev_2026_super_secure';
+const getJwtSecret = () => process.env.JWT_SECRET || 'projecthub_secret_key_dev_2026_super_secure';
 
 const generateToken = (userId) => {
-  return jwt.sign({ userId }, JWT_SECRET, { expiresIn: '7d' });
+  return jwt.sign({ userId }, getJwtSecret(), { expiresIn: '7d' });
 };
 
 export const register = async (req, res) => {
