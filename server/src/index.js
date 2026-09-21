@@ -73,6 +73,10 @@ app.use((err, req, res, next) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`🚀 ProjectHub Server running on http://localhost:${PORT}`);
-});
+if (!process.env.VERCEL) {
+  server.listen(PORT, () => {
+    console.log(`🚀 ProjectHub Server running on http://localhost:${PORT}`);
+  });
+}
+
+export default app;

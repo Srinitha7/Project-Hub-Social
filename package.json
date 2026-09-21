@@ -2,7 +2,9 @@
   "name": "projecthub-social",
   "version": "1.0.0",
   "description": "ProjectHub Social - Developer Social Platform & Hackathon Team Matcher",
+  "type": "module",
   "scripts": {
+    "build": "npm --prefix client run build",
     "dev:server": "npm --prefix server run dev",
     "dev:client": "npm --prefix client run dev",
     "db:seed": "npm --prefix server run db:seed",
