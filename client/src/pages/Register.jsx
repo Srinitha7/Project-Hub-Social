@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Terminal, User, Mail, Lock, GraduationCap, Code2, ArrowRight } from 'lucide-react';
+import { Terminal, User, Mail, Lock, GraduationCap, ArrowRight } from 'lucide-react';
 
 const popularSkills = [
   'React', 'Node.js', 'Python', 'TypeScript', 'Java', 'Spring Boot',
@@ -68,23 +68,23 @@ export const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-slate-950 text-slate-100 py-12">
+    <div className="min-h-screen flex items-center justify-center p-4 text-slate-100 py-12 bg-transparent animate-fade-in-up">
       <div className="w-full max-w-xl space-y-6">
         
         {/* Brand */}
         <div className="text-center">
-          <Link to="/" className="inline-flex items-center gap-2 font-mono text-xl font-bold tracking-tight text-white mb-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 text-white shadow-lg shadow-indigo-500/30">
+          <Link to="/" className="inline-flex items-center gap-2.5 font-mono text-xl font-bold tracking-tight text-white mb-2">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-500 text-white shadow-lg shadow-purple-600/30">
               <Terminal className="h-5 w-5" />
             </div>
-            <span>ProjectHub <span className="text-indigo-400 font-light">Social</span></span>
+            <span>ProjectHub <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent font-bold">Social</span></span>
           </Link>
           <h2 className="text-2xl font-bold tracking-tight text-white">Join Developer Network</h2>
           <p className="text-xs text-slate-400 mt-1">Create your developer profile & start finding teammates</p>
         </div>
 
         {/* Register Card */}
-        <div className="glass-card rounded-2xl border border-slate-800 bg-slate-900/80 p-6 shadow-2xl">
+        <div className="glass-card rounded-3xl border border-white/10 bg-[#16182e]/90 p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
           {error && (
             <div className="mb-4 rounded-xl bg-rose-500/10 border border-rose-500/20 p-3 text-xs text-rose-400 font-medium">
               {error}
@@ -96,13 +96,13 @@ export const Register = () => {
               <div>
                 <label className="block text-xs font-semibold text-slate-300 mb-1">Full Name</label>
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-purple-400" />
                   <input
                     type="text"
                     placeholder="Alex Chen"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="w-full rounded-xl border border-slate-800 bg-slate-950 py-2.5 pl-9 pr-3 text-xs text-slate-200 focus:border-indigo-500 focus:outline-none"
+                    className="w-full rounded-xl border border-white/10 bg-[#121427] py-2.5 pl-9 pr-3 text-xs text-white placeholder-slate-400 focus:border-purple-500 focus:outline-none"
                     required
                   />
                 </div>
@@ -111,13 +111,13 @@ export const Register = () => {
               <div>
                 <label className="block text-xs font-semibold text-slate-300 mb-1">Username</label>
                 <div className="relative">
-                  <Terminal className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                  <Terminal className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-purple-400" />
                   <input
                     type="text"
                     placeholder="alexchen"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    className="w-full rounded-xl border border-slate-800 bg-slate-950 py-2.5 pl-9 pr-3 text-xs text-slate-200 focus:border-indigo-500 focus:outline-none"
+                    className="w-full rounded-xl border border-white/10 bg-[#121427] py-2.5 pl-9 pr-3 text-xs text-white placeholder-slate-400 focus:border-purple-500 focus:outline-none"
                     required
                   />
                 </div>
@@ -127,13 +127,13 @@ export const Register = () => {
             <div>
               <label className="block text-xs font-semibold text-slate-300 mb-1">Email Address</label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-purple-400" />
                 <input
                   type="email"
                   placeholder="alex.chen@university.edu"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-xl border border-slate-800 bg-slate-950 py-2.5 pl-9 pr-3 text-xs text-slate-200 focus:border-indigo-500 focus:outline-none"
+                  className="w-full rounded-xl border border-white/10 bg-[#121427] py-2.5 pl-9 pr-3 text-xs text-white placeholder-slate-400 focus:border-purple-500 focus:outline-none"
                   required
                 />
               </div>
@@ -143,13 +143,13 @@ export const Register = () => {
               <div>
                 <label className="block text-xs font-semibold text-slate-300 mb-1">Password</label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-purple-400" />
                   <input
                     type="password"
                     placeholder="••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full rounded-xl border border-slate-800 bg-slate-950 py-2.5 pl-9 pr-3 text-xs text-slate-200 focus:border-indigo-500 focus:outline-none"
+                    className="w-full rounded-xl border border-white/10 bg-[#121427] py-2.5 pl-9 pr-3 text-xs text-white placeholder-slate-400 focus:border-purple-500 focus:outline-none"
                     required
                   />
                 </div>
@@ -158,13 +158,13 @@ export const Register = () => {
               <div>
                 <label className="block text-xs font-semibold text-slate-300 mb-1">Confirm Password</label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-purple-400" />
                   <input
                     type="password"
                     placeholder="••••••••"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full rounded-xl border border-slate-800 bg-slate-950 py-2.5 pl-9 pr-3 text-xs text-slate-200 focus:border-indigo-500 focus:outline-none"
+                    className="w-full rounded-xl border border-white/10 bg-[#121427] py-2.5 pl-9 pr-3 text-xs text-white placeholder-slate-400 focus:border-purple-500 focus:outline-none"
                     required
                   />
                 </div>
@@ -174,13 +174,13 @@ export const Register = () => {
             <div>
               <label className="block text-xs font-semibold text-slate-300 mb-1">College / University</label>
               <div className="relative">
-                <GraduationCap className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                <GraduationCap className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-purple-400" />
                 <input
                   type="text"
                   placeholder="MIT, Stanford, Berkeley, IIT..."
                   value={college}
                   onChange={(e) => setCollege(e.target.value)}
-                  className="w-full rounded-xl border border-slate-800 bg-slate-950 py-2.5 pl-9 pr-3 text-xs text-slate-200 focus:border-indigo-500 focus:outline-none"
+                  className="w-full rounded-xl border border-white/10 bg-[#121427] py-2.5 pl-9 pr-3 text-xs text-white placeholder-slate-400 focus:border-purple-500 focus:outline-none"
                 />
               </div>
             </div>
@@ -189,9 +189,9 @@ export const Register = () => {
             <div>
               <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center justify-between">
                 <span>Select Your Core Skills</span>
-                <span className="text-[11px] text-indigo-400 font-normal">{selectedSkills.length} selected</span>
+                <span className="text-[11px] text-purple-300 font-normal">{selectedSkills.length} selected</span>
               </label>
-              <div className="flex flex-wrap gap-1.5 mb-2 max-h-32 overflow-y-auto p-2 rounded-xl border border-slate-800 bg-slate-950">
+              <div className="flex flex-wrap gap-1.5 mb-2 max-h-32 overflow-y-auto p-2 rounded-xl border border-white/10 bg-[#121427]">
                 {popularSkills.map(skill => {
                   const isSelected = selectedSkills.includes(skill);
                   return (
@@ -201,8 +201,8 @@ export const Register = () => {
                       onClick={() => toggleSkill(skill)}
                       className={`rounded-lg px-2.5 py-1 text-xs font-mono font-medium border transition-all ${
                         isSelected
-                          ? 'bg-indigo-600 text-white border-indigo-500 shadow-md shadow-indigo-600/20'
-                          : 'bg-slate-900 text-slate-400 border-slate-800 hover:border-slate-700'
+                          ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white border-purple-500/50 shadow-md shadow-purple-600/30'
+                          : 'bg-[#181a34] text-slate-400 border-white/5 hover:border-white/20'
                       }`}
                     >
                       {skill}
@@ -218,12 +218,12 @@ export const Register = () => {
                   placeholder="Add custom skill (e.g. GraphQL)..."
                   value={customSkill}
                   onChange={(e) => setCustomSkill(e.target.value)}
-                  className="flex-1 rounded-xl border border-slate-800 bg-slate-950 px-3 py-1.5 text-xs text-slate-200 focus:border-indigo-500 focus:outline-none"
+                  className="flex-1 rounded-xl border border-white/10 bg-[#121427] px-3 py-1.5 text-xs text-white placeholder-slate-400 focus:border-purple-500 focus:outline-none"
                 />
                 <button
                   type="button"
                   onClick={addCustomSkill}
-                  className="rounded-xl border border-slate-700 bg-slate-800 px-3 py-1.5 text-xs font-semibold text-slate-200 hover:bg-slate-700"
+                  className="rounded-xl border border-white/10 bg-[#1a1c36] px-3 py-1.5 text-xs font-semibold text-slate-200 hover:bg-white/10"
                 >
                   Add
                 </button>
@@ -233,7 +233,7 @@ export const Register = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 py-3 text-xs font-semibold text-white shadow-lg shadow-indigo-600/30 hover:from-indigo-500 hover:to-violet-500 transition-all disabled:opacity-50"
+              className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 py-3 text-xs font-semibold text-white shadow-lg shadow-purple-600/30 hover:opacity-95 transition-all disabled:opacity-50"
             >
               {loading ? 'Creating Account...' : 'Complete Developer Profile'} <ArrowRight className="h-4 w-4" />
             </button>
@@ -241,7 +241,7 @@ export const Register = () => {
 
           <p className="mt-6 text-center text-xs text-slate-400">
             Already have an account?{' '}
-            <Link to="/login" className="font-semibold text-indigo-400 hover:underline">
+            <Link to="/login" className="font-semibold text-purple-400 hover:underline">
               Log in
             </Link>
           </p>
