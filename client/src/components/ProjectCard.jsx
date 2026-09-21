@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { api } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 import { use3DTilt } from './use3DTilt';
-import { Github, ExternalLink, Heart, Bookmark, Code2 } from 'lucide-react';
+import { Github, ExternalLink, Heart, Bookmark } from 'lucide-react';
 
 export const ProjectCard = ({ project }) => {
   const { user } = useAuth();
@@ -13,9 +13,9 @@ export const ProjectCard = ({ project }) => {
   const [isSaved, setIsSaved] = useState(project.isSaved);
 
   const statusColors = {
-    IDEA: 'bg-amber-100 text-amber-800 border-amber-300',
-    IN_DEVELOPMENT: 'bg-indigo-100 text-indigo-800 border-indigo-300',
-    COMPLETED: 'bg-emerald-100 text-emerald-800 border-emerald-300'
+    IDEA: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+    IN_DEVELOPMENT: 'bg-purple-500/20 text-purple-300 border-purple-500/40',
+    COMPLETED: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
   };
 
   const handleLike = async (e) => {
@@ -49,11 +49,11 @@ export const ProjectCard = ({ project }) => {
       style={tilt.style}
       onMouseMove={tilt.onMouseMove}
       onMouseLeave={tilt.onMouseLeave}
-      className="glass-card glass-card-hover tilt-card-3d flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 transition-all shadow-sm"
+      className="glass-card glass-card-hover tilt-card-3d flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-[#16182e]/90 text-white p-5 transition-all shadow-xl"
     >
       <div>
         {/* Header Image & Status */}
-        <div className="relative mb-4 h-44 overflow-hidden rounded-xl bg-slate-100 border border-slate-200">
+        <div className="relative mb-4 h-44 overflow-hidden rounded-xl bg-[#121427] border border-white/10">
           <img
             src={project.imageUrl || 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80'}
             alt=""
@@ -66,11 +66,11 @@ export const ProjectCard = ({ project }) => {
 
         {/* Title & Description */}
         <Link to={`/projects/${project.id}`} className="block group">
-          <h3 className="text-base font-bold text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-1 mb-1.5">
+          <h3 className="text-base font-bold text-white group-hover:text-purple-300 transition-colors line-clamp-1 mb-1.5">
             {project.title}
           </h3>
         </Link>
-        <p className="text-xs text-slate-600 line-clamp-2 mb-4 leading-relaxed font-normal">
+        <p className="text-xs text-slate-300 line-clamp-2 mb-4 leading-relaxed font-normal">
           {project.description}
         </p>
 
@@ -79,7 +79,7 @@ export const ProjectCard = ({ project }) => {
           {(project.technologiesList || []).map((tech, idx) => (
             <span
               key={idx}
-              className="rounded-md border border-indigo-200 bg-indigo-50/80 px-2 py-0.5 text-[11px] font-mono font-semibold text-indigo-700"
+              className="rounded-md border border-purple-500/30 bg-purple-500/10 px-2 py-0.5 text-[11px] font-mono font-semibold text-purple-300"
             >
               {tech}
             </span>
@@ -89,22 +89,22 @@ export const ProjectCard = ({ project }) => {
 
       <div>
         {/* Creator Info */}
-        <div className="flex items-center justify-between py-3 border-t border-b border-slate-100 mb-3">
+        <div className="flex items-center justify-between py-3 border-t border-b border-white/10 mb-3">
           <Link to={`/profile/${project.creator.username}`} className="flex items-center gap-2 group">
-            <img src={project.creator.avatarUrl} alt="" className="h-6 w-6 rounded-full object-cover ring-1 ring-slate-200" />
-            <span className="text-xs font-semibold text-slate-700 group-hover:text-indigo-600 transition-colors">
+            <img src={project.creator.avatarUrl} alt="" className="h-6 w-6 rounded-full object-cover ring-1 ring-purple-500/30" />
+            <span className="text-xs font-semibold text-slate-300 group-hover:text-purple-300 transition-colors">
               {project.creator.fullName}
             </span>
           </Link>
 
           <div className="flex items-center gap-3">
             {project.githubLink && (
-              <a href={project.githubLink} target="_blank" rel="noreferrer" className="text-slate-500 hover:text-slate-900 transition-colors" title="GitHub Repo">
+              <a href={project.githubLink} target="_blank" rel="noreferrer" className="text-purple-400 hover:text-white transition-colors" title="GitHub Repo">
                 <Github className="h-4 w-4" />
               </a>
             )}
             {project.liveDemoLink && (
-              <a href={project.liveDemoLink} target="_blank" rel="noreferrer" className="text-emerald-600 hover:text-emerald-700 transition-colors" title="Live Demo">
+              <a href={project.liveDemoLink} target="_blank" rel="noreferrer" className="text-cyan-400 hover:text-cyan-300 transition-colors" title="Live Demo">
                 <ExternalLink className="h-4 w-4" />
               </a>
             )}
@@ -112,20 +112,20 @@ export const ProjectCard = ({ project }) => {
         </div>
 
         {/* Action Footer */}
-        <div className="flex items-center justify-between text-xs text-slate-500">
+        <div className="flex items-center justify-between text-xs text-slate-400">
           <div className="flex items-center gap-3">
-            <button onClick={handleLike} className={`flex items-center gap-1 font-semibold ${isLiked ? 'text-rose-600' : 'hover:text-rose-500'}`}>
-              <Heart className={`h-4 w-4 ${isLiked ? 'fill-rose-600' : ''}`} />
+            <button onClick={handleLike} className={`flex items-center gap-1 font-semibold ${isLiked ? 'text-rose-400' : 'hover:text-rose-400'}`}>
+              <Heart className={`h-4 w-4 ${isLiked ? 'fill-rose-500 text-rose-500' : ''}`} />
               <span>{likesCount}</span>
             </button>
-            <button onClick={handleSave} className={`hover:text-indigo-600 ${isSaved ? 'text-indigo-600' : ''}`}>
-              <Bookmark className={`h-4 w-4 ${isSaved ? 'fill-indigo-600' : ''}`} />
+            <button onClick={handleSave} className={`hover:text-purple-400 ${isSaved ? 'text-purple-400' : ''}`}>
+              <Bookmark className={`h-4 w-4 ${isSaved ? 'fill-purple-400' : ''}`} />
             </button>
           </div>
 
           <Link
             to={`/projects/${project.id}`}
-            className="rounded-lg bg-indigo-50 border border-indigo-200 px-3 py-1 text-xs font-semibold text-indigo-700 hover:bg-indigo-600 hover:text-white transition-all shadow-xs"
+            className="rounded-xl bg-purple-500/20 border border-purple-500/40 px-3 py-1 text-xs font-semibold text-purple-200 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:text-white transition-all shadow-md"
           >
             View Project
           </Link>

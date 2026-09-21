@@ -43,7 +43,7 @@ export default function App() {
   const isPublicPage = ['/', '/login', '/register'].includes(location.pathname);
 
   return (
-    <div className="relative min-h-screen bg-slate-50 text-slate-900 flex flex-col overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#0b0e1b] text-slate-100 flex flex-col overflow-x-hidden">
       
       {/* Plain Background Container */}
       <VantaBackground />
