@@ -1,0 +1,15 @@
+{
+  "name": "projecthub-social",
+  "version": "1.0.0",
+  "description": "ProjectHub Social - Developer Social Platform & Hackathon Team Matcher",
+  "scripts": {
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "db:seed": "npm --prefix server run db:seed",
+    "db:push": "npm --prefix server run db:push",
+    "build:client": "npm --prefix client run build"
+  },
+  "keywords": ["developer-social-network", "react", "express", "prisma", "socketio", "tailwind"],
+  "author": "Antigravity",
+  "license": "MIT"
+}
